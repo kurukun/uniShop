@@ -14,7 +14,7 @@
   }, {
     "path": "pages/cart/cart",
     "style": {
-      "enablePullDownRefresh": false
+      "enablePullDownRefresh": true
     }
 
   }, {
@@ -23,6 +23,22 @@
       "enablePullDownRefresh": false
     }
 
+  }],
+  "subPackages": [{
+    "root": "subpkg",
+    "pages": [{
+      "path": "goods_detail/goods_detail",
+      "style": {
+        "enablePullDownRefresh": false
+      }
+    }, {
+      "path": "goods_list/goods_list",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+
+    }]
   }],
   "globalStyle": {
     "navigationBarTextStyle": "white",
