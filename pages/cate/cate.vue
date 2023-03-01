@@ -1,5 +1,7 @@
 <template>
   <view>
+    <!-- 使用自定义搜索组件 -->
+    <my-search @myClick="gotoSearch"></my-search>
     <view class="scroll-view-container">
       <!-- 左侧滑动区域 -->
       <scroll-view class="left-scroll-view" scroll-y="true" :style="{height: wh + 'px'}">
@@ -11,14 +13,14 @@
         </block>
       </scroll-view>
       <!-- 右侧滑动区域 -->
-      <scroll-view scroll-y="true" :style="{height: wh + 'px', backgroundColor: 'white'}" :scroll-top="scrollTop">
+      <scroll-view scroll-y="true" :style="{height: wh + 'px'}" :scroll-top="scrollTop">
         <view class="cate-lv2" v-for="(item2, index2) in cateLevel2" :key="index2">
           <!-- 二级分类的标题 -->
           <view class="cate-lv2-title">/ {{item2.cat_name}} /</view>
           <!-- 当前二级分类下的三级分类列表 -->
           <view class="cate-lv3-list">
             <!-- 三级分类的item项 -->
-            <view class="cate-lv3-item" v-for="(item3, index3) in item2.children" :key="item3"
+            <view class="cate-lv3-item" v-for="(item3, index3) in item2.children" :key="index3"
               @click="toGoodsList(item3)">
               <!-- 三级分类的图片 -->
               <image :src="item3.cat_icon.replace('dev', 'web')"></image>
@@ -49,7 +51,7 @@
       // 获取当前设备的屏幕大小信息
       const sysInfo = uni.getSystemInfoSync();
       // console.log(sysInfo);
-      this.wh = sysInfo.windowHeight;
+      this.wh = sysInfo.windowHeight - 50;
       this.getCateList();
     },
     methods: {
@@ -75,6 +77,12 @@
         uni.navigateTo({
           url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
         })
+      },
+      gotoSearch() {
+        // console.log('我是cate里的事件回调');
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
       }
     }
   }
@@ -83,6 +91,7 @@
 <style lang="scss">
   .scroll-view-container {
     display: flex;
+    background-color: #fff;
 
     .left-scroll-view {
       width: 120px;
