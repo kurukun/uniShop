@@ -13,9 +13,7 @@
 
   }, {
     "path": "pages/cart/cart",
-    "style": {
-      "enablePullDownRefresh": true
-    }
+    "style": {}
 
   }, {
     "path": "pages/my/my",

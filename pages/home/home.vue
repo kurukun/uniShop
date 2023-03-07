@@ -45,7 +45,10 @@
 </template>
 
 <script>
+  import tabbar_badge from '@/mixins/tabbar-badge.js'
+
   export default {
+    mixins: [tabbar_badge],
     data() {
       return {
         // 这是轮播图的数据列表
