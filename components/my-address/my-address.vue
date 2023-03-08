@@ -57,7 +57,7 @@
       async chooseAddress() {
         const [err, succ] = await uni.chooseAddress().catch(err => err);
         // console.log(err);
-        if (succ && succ.errMsg === 'chooseAddress:ok') {
+        if (err === null && succ.errMsg === 'chooseAddress:ok') {
           // console.log(succ);
           // this.address = succ;
           this.updateAddress(succ);
